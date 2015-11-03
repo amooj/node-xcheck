@@ -1,0 +1,11 @@
+{
+  "name": "xcheck",
+  "description": "Helps to do data validation",
+  "devDependencies": {
+    "mocha": "*",
+    "istanbul": "*"
+  },
+  "version": "0.0.1",
+  "homepage": "https://github.com/amooj/node-xcheck",
+  "repository": "https://github.com/amooj/node-xcheck.git"
+}
