@@ -14,8 +14,8 @@ let template = xcheck.loadTemplate(
 let data = {name: 'tom', secret: '******'};
 data = template.validate(data, {applyDefaults: true});
 
-assert(output.name === 'anonymous');
-assert(output.secret === '******');
-assert(output.port === 21);
-assert(output.secured === true);
+assert(data.name === 'tom');
+assert(data.secret === '******');
+assert(data.port === 21);
+assert(data.secured === true);
 ```
