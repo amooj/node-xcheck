@@ -1,11 +1,16 @@
 {
   "name": "xcheck",
-  "description": "Helps to do data validation",
+  "description": "Template based data validation for Node.js",
   "devDependencies": {
     "mocha": "*",
     "istanbul": "*"
   },
-  "version": "0.0.1",
+  "scripts": {
+    "test": "mocha --recursive test/",
+    "test-cov": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/ -- --recursive --reporter dot",
+    "test-travis": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/ --report lcovonly -- --recursive --reporter dot"
+  },
+  "version": "0.1.0",
   "homepage": "https://github.com/amooj/node-xcheck",
   "repository": "https://github.com/amooj/node-xcheck.git"
 }
