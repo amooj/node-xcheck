@@ -3,20 +3,20 @@
 const templates = require('./lib/templates');
 
 /**
- * Load a template from JSON string.
+ * Creates a template from JSON string.
  * @param {String} data - template object in JSON.
  * @return {ValueTemplate}
  */
-exports.loadTemplateFromJSON = function (data){
-  return exports.loadTemplate(JSON.parse(data));
+exports.createTemplateFromJSON = function (data){
+  return exports.createTemplate(JSON.parse(data));
 };
 
 /**
- * Load a template.
+ * Creates a template.
  * @param {*} template - a template object.
  * @return {ValueTemplate}
  */
-exports.loadTemplate = function (template){
+exports.createTemplate = function (template){
   return templates.ValueTemplate.parse(template);
 };
 
