@@ -1,6 +1,6 @@
 {
   "name": "xcheck",
-  "description": "Template based data validation for Node.js",
+  "description": "Templated data validation for Node.js",
   "devDependencies": {
     "mocha": "*",
     "istanbul": "*"
