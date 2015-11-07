@@ -2,8 +2,8 @@
   "name": "xcheck",
   "description": "Templated data validation for Node.js",
   "devDependencies": {
-    "mocha": "*",
-    "istanbul": "*"
+    "mocha": ">=2.3.3",
+    "istanbul": ">=0.4.0"
   },
   "scripts": {
     "test": "mocha --recursive test/",

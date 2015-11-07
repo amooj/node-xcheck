@@ -1,4 +1,7 @@
 # node-xcheck
+
+[![Build Status](https://travis-ci.org/amooj/node-xcheck.svg?branch=master)](https://travis-ci.org/amooj/node-xcheck)
+
 Templated data validation for Node.js.
 
 ## What' xcheck For?
