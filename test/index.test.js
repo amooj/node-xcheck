@@ -1,6 +1,3 @@
-/**
- * amooj <hi@amooj.com>
- */
 'use strict';
 
 const assert = require('assert');
