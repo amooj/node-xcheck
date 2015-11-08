@@ -27,8 +27,15 @@ But when things get more complicated, you have to write dozens of if-else to do 
 _xcheck_ will do the dirty work for you.
 
 ## Quick Start
+To install _xcheck_:
+```shell
+npm install xcheck
+```
 
+Simple usage:
 ```js
+const xcheck = require('xcheck');
+
 let template = xcheck.createTemplate({
   name: 'anonymous',
   secret: '',
@@ -43,10 +50,9 @@ template.validate(d1); // will throw TypeError
 let d2 = {email: 'hi@example.com'};
 template.validate(d2, {applyDefaults: true});
 
-// The following assertions should pass.
-assert(d2.name === 'anonymous');
-assert(d2.secret === '');
-assert(d2.email === 'hi@example.com');
+console.log(d2.name);   // 'anonymous'
+console.log(d2.secret); // ''
+console.log(d2.email);  // 'hi@example.com'
 ```
 
 Now, some explanation for how _xcheck_ works. 
