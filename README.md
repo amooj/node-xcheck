@@ -15,13 +15,13 @@ function myService(query){
   if (!email){
     throw new Error('email is required.');
   }
-  
+
   // work, work, work
-  
+
   return data;
 }
 ```
-This is no big deal, though the argument validation is a bit tedious. 
+This is no big deal, though the argument validation is a bit tedious.
 But when things get more complicated, you have to write dozens of if-else to do the validation. That's quite awful and error prone.
 
 _xcheck_ will do the dirty work for you.
@@ -55,7 +55,7 @@ console.log(d2.secret); // ''
 console.log(d2.email);  // 'hi@example.com'
 ```
 
-Now, some explanation for how _xcheck_ works. 
+Now, some explanation for how _xcheck_ works.
 
 By calling `xcheck.createTemplate({...})`, an _ObjectTemplate_ is created, which defines a couple of constraints on an object as below:
 
@@ -65,7 +65,7 @@ By calling `xcheck.createTemplate({...})`, an _ObjectTemplate_ is created, which
     - `secret`, which should be a _string_ and, if missing, is defaulted to empty string.
 - The object **should** have `email` property, which should be a _string_.
 
-Then by calling `template.validate(d1)`, `d1` is validated for compliance with these constraints. Since `email` property is required by the template but `d1.email` is `undefined`, `d1` will fail the validation. Thus a _TypeError_ exception will be thrown. 
+Then by calling `template.validate(d1)`, `d1` is validated for compliance with these constraints. Since `email` property is required by the template but `d1.email` is `undefined`, `d1` will fail the validation. Thus a _TypeError_ exception will be thrown.
 
 With `applyDefaults` option is set `true`, `template.validate(d2)` will add any properties that are missing into the validated object. Thus `d2.name` is assigned default value `'anonymous'`.
 
@@ -84,16 +84,16 @@ _ObjectTemplate :=<br/>
 _PropertyTemplate :=<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;" property_name \[required\] \[not SP null\] \[default SP json_value\]" : ValueTemplate_
 
-Here are typename's that are supported:
+Here are supported built-in typename's:
 
 | typename | Node.js type | since |
 | ---- | ---- | ---- |
 | :number | number | * |
-| :int | number, accepts only integer | * | 
+| :int | number, accepts only integer | * |
 | :string | string | * |
-| :boolean | boolean | * |
-| :null | object, accepts only null | * | 
 | :char | string, accepts single character | * |
+| :boolean | boolean | * |
+| :null | object, accepts only null | * |
 
 > Note that typename is prefixed with a colon. So if you want to create a string template that has a default value starts with colon, you need to add an extra colon.<br/>
 > `let str = xcheck.createTemplate('::my string starts with colon');`
@@ -122,7 +122,7 @@ let t = xcheck.createTemplate({
      'code not null': ':string',
      'level': 1
   }],
-  
+
   // location should be Array<String>, defaults to ['CN']
   'locations default ["CN"]': [":string"]
 });
@@ -134,7 +134,7 @@ Generally you do not care about what type of the template is. Just describe what
 These are what _xcheck_ can't do for you:
 
 * Validating an array of isomers.
-* Tricky validation, i.e. you should check the correctness of a URL by yourself. 
+* Tricky validation, i.e. you should check the correctness of a URL by yourself.
 
 ## Comming More Features
 The following features are in plan:
