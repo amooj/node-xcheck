@@ -10,12 +10,19 @@
     "index.js",
     "lib"
   ],
+  "keywords": [
+    "validation",
+    "verify",
+    "argument",
+    "check",
+    "template"
+  ],
   "scripts": {
     "test": "mocha --recursive test/",
     "test-cov": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/ -- --recursive --reporter dot",
     "test-travis": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/ --report lcovonly -- --recursive --reporter dot"
   },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/amooj/node-xcheck#readme",
   "repository": {
     "type": "git",
