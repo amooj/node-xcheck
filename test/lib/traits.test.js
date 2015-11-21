@@ -1,6 +1,6 @@
 'use strict';
 
-const assert = require('assert');
+const assert = require('../assert');
 const traits = require('../../lib/traits');
 
 describe('lib/traits.test.js', function (){
@@ -22,5 +22,11 @@ describe('lib/traits.test.js', function (){
     assert.equal(traits.typeTest('a', 'char'), true);
     assert.equal(traits.typeTest('', 'char'), false);
     assert.equal(traits.typeTest('10', 'char'), false);
+  });
+
+  it('typeTest any', function (){
+    assert.equal(traits.typeTest(1, 'any'), true);
+    assert.equal(traits.typeTest('abc', 'any'), true);
+    assert.equal(traits.typeTest(null, 'any'), true);
   });
 });
