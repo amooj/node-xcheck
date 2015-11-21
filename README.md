@@ -1,6 +1,7 @@
 # node-xcheck
 
 [![Build Status](https://travis-ci.org/amooj/node-xcheck.svg?branch=master)](https://travis-ci.org/amooj/node-xcheck)
+[![Coverage Status](https://coveralls.io/repos/amooj/node-xcheck/badge.svg?branch=master&service=github)](https://coveralls.io/github/amooj/node-xcheck?branch=master)
 
 Templated data validation for Node.js.
 
@@ -39,7 +40,7 @@ const xcheck = require('xcheck');
 let template = xcheck.createTemplate({
   name: 'anonymous',
   secret: '',
-  'email not null': ':string'
+  'email required': ':string'
 });
 
 // d1 will fail the validation
@@ -82,7 +83,7 @@ _ObjectTemplate :=<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;{ PropertyTemplate \[,PropertyTemplate\] }_
 
 _PropertyTemplate :=<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;" property_name \[required\] \[not SP null\] \[default SP json_value\]" : ValueTemplate_
+&nbsp;&nbsp;&nbsp;&nbsp;" property_name \[required\] \[nullable\] \[default SP json_value\]" : ValueTemplate_
 
 Here are supported built-in typename's:
 
@@ -94,6 +95,7 @@ Here are supported built-in typename's:
 | :char | string, accepts single character | * |
 | :boolean | boolean | * |
 | :null | object, accepts only null | * |
+| :any | * | 0.2.0 |
 
 > Note that typename is prefixed with a colon. So if you want to create a string template that has a default value starts with colon, you need to add an extra colon.<br/>
 > `let str = xcheck.createTemplate('::my string starts with colon');`
@@ -104,7 +106,7 @@ Here are more examples to build templates:
 // creates a ValueTemplate that accepts an int
 let int = xcheck.createTemplate(":int default 1");
 
-// atomic value template with default value can be shorttened
+// atomic value template with default value can be shortened
 int = xcheck.createTemplate(1); // exactly same as above
 let str = xcheck.createTemplate(''); // accepts string, defaults to empty string
 
@@ -116,10 +118,10 @@ strarray.validate(['this', 'is', 'weird', 1, 2, 3]); // fail
 
 // creates an ObjectTemplate that accepts complex objects
 let t = xcheck.createTemplate({
-  'names not null': [':string'],
-  'courses not null': [{
-     'id not null': ':int',
-     'code not null': ':string',
+  'names required': [':string'],
+  'courses required': [{
+     'id required': ':int',
+     'code required': ':string',
      'level': 1
   }],
 
@@ -139,6 +141,4 @@ These are what _xcheck_ can't do for you:
 ## Comming More Features
 The following features are in plan:
 
-* Supports for other useful types, such as _Date_.
-* Supports for customized typename.
 * Supports for code snippet in ValueTemplate: `:int {value>=0}` or `:string {value.length <= 5}`.
