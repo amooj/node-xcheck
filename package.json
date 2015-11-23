@@ -21,7 +21,8 @@
   "scripts": {
     "test": "mocha --recursive test/",
     "test-cov": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/ -- --recursive --reporter dot",
-    "test-travis": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/ --report lcovonly -- --recursive --reporter dot"
+    "test-travis": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/ --report lcovonly -- --recursive --reporter dot",
+    "benchmark": "node benchmark/main.js"
   },
   "version": "0.2.1",
   "homepage": "https://github.com/amooj/node-xcheck#readme",
